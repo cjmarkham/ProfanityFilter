@@ -84,6 +84,12 @@ RSpec.describe Profanityfilter do
       replaced = Profanityfilter.sanitize_symbols string
       expect(replaced).to eq '****!'
     end
+
+    it 'works with periods splitting a word' do
+      string = 'sh.it'
+      replaced = Profanityfilter.sanitize_symbols string
+      expect(replaced).to eq '****'
+    end
   end
 
   describe 'sanitize_concurrent_letters' do

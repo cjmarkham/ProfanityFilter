@@ -15,6 +15,15 @@ module Profanityfilter
   }, {
     symbol: '1',
     letter: 'i',
+  }, {
+    symbol: '(',
+    letter: 'c',
+  }, {
+    # Periods are commonly used to split a word to bypass filters.
+    # Rather than using another method for this, we can replace it
+    # in the symbol sanitization function with no character
+    symbol: '.',
+    letter: '',
   }]
 
   def self.sanitize string
